@@ -1,0 +1,144 @@
+@use "../utils/colors" as *;
+@use "../base/typography" as *;
+@use "../utils/variables" as *;
+
+.menu {
+  .section-title {
+    margin-block-end: 40px;
+  }
+  .btn {
+    margin-inline: auto;
+    margin-block-start: 26px;
+  }
+  .shape {
+    display: block;
+    width: 70%;
+    &-2 {
+      top: 0;
+      left: 0;
+    }
+    &-3 {
+      bottom: 0;
+      right: 0;
+    }
+  }
+  .grid-list {
+    margin-block-end: 50px;
+    .menu-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      .card-banner {
+        flex-shrink: 0;
+        border-radius: $radius-circle;
+        animation: menuRotate 30s linear infinite alternate;
+      }
+      .card-title {
+        transition: $transition-1;
+        &:is(:hover, :focus-visible) {
+          color: $gold-crayola;
+        }
+      }
+      .badge {
+        max-width: max-content;
+        margin-block-start: 10px;
+        padding-inline: 10px;
+        background-color: $gold-crayola;
+        color: $eerie-black-1;
+        text-transform: uppercase;
+        line-height: $lineHeight-6;
+        font-family: $fontFamily-forum;
+      }
+      .span {
+        margin-block: 10px;
+        color: $gold-crayola;
+      }
+      .card-text {
+        color: $quick-silver;
+        line-height: $lineHeight-4;
+      }
+    }
+  }
+}
+
+.menu-text .span {
+  display: inline-block;
+  color: $gold-crayola;
+}
+
+@keyframes menuRotate {
+  from {
+    transform: rotate(0turn);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+.move-anim {
+  animation: menuUpdown 2.5s linear infinite alternate;
+}
+
+@keyframes menuUpdown {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(30px);
+  }
+}
+
+// Media Queries
+
+@media (min-width: 575px) {
+  .menu-card {
+    .title-wrapper {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 15px;
+    }
+    .span {
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      position: relative;
+      &::before {
+        content: "";
+        height: 6px;
+        flex-grow: 1;
+        border-block: 1px solid $white-alpha-20;
+      }
+    }
+  }
+  .menu .grid-list .menu-card .badge {
+    margin-block-start: 0px;
+  }
+}
+
+// Large
+@media (min-width: 992px) {
+  .menu {
+    .grid-list {
+      position: relative;
+      column-gap: 90px;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        height: 100%;
+        left: 50%;
+        border-inline-start: 1px solid $white-alpha-20;
+      }
+    }
+  }
+}
+
+// Super large
+@media (min-width: 1200px) {
+  .menu .grid-list {
+    gap: 55px 200px;
+    margin-block-end: 55px;
+  }
+}

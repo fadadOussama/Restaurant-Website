@@ -1,0 +1,123 @@
+@use "../utils/colors" as *;
+@use "../base/typography" as *;
+@use "../utils/variables" as *;
+
+.w-100 {
+  width: 100%;
+}
+
+.section-text {
+  margin-block: 15px 30px;
+}
+
+.about {
+  .btn {
+    margin-inline: auto;
+    margin-block-start: 26px;
+  }
+  .container {
+    display: grid;
+    gap: 120px;
+  }
+  &-banner {
+    position: relative;
+    margin-block-end: 120px;
+    > .w-100 {
+      padding-inline-start: 50px;
+    }
+    .abs-img {
+      position: absolute;
+    }
+    .abs-img-2 {
+      top: -67px;
+      right: 0;
+      overflow: hidden;
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url("../assets/images/badge-2-bg.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        animation: absRotate 15s linear infinite;
+      }
+    }
+  }
+  .abs-img-1 {
+    width: 150px;
+    bottom: -125px;
+    left: 0;
+    padding-block: 50px;
+    z-index: 1;
+    &::before {
+      content: "";
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: -1;
+      position: absolute;
+      background-image: url("../assets/images/img-pattern.svg");
+      background-repeat: repeat;
+      width: 130px;
+    }
+  }
+}
+
+@keyframes absRotate {
+  from {
+    transform: rotate(0turn);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+// Media Queries
+
+@media (min-width: 575px) {
+  .about {
+    .container {
+      gap: 80px;
+    }
+    &-banner > .w-100 {
+      padding-inline-start: 90px;
+    }
+    .abs-img-1 {
+      width: 285px;
+    }
+    .contact-number {
+      $fontSize-body-1: 2.4rem;
+    }
+  }
+}
+
+// Large
+@media (min-width: 992px) {
+  .about {
+    .container {
+      grid-template-columns: 0.7fr 1fr;
+      gap: 30px;
+    }
+  }
+}
+
+// Super large
+@media (min-width: 1200px) {
+  .about {
+    padding-block: 170px 100px;
+  }
+}
+
+// Desktop
+@media (min-width: 1400px) {
+  .about-content {
+    padding-inline-end: 90px;
+  }
+
+  .about .shape {
+    display: block;
+    top: 46%;
+    left: 0;
+  }
+}

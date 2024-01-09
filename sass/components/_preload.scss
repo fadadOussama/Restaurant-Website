@@ -1,0 +1,78 @@
+@use "../utils" as *;
+@use "../base/typography" as *;
+
+.preload {
+  position: fixed;
+  inset: 0;
+  background-color: $gold-crayola;
+  z-index: 10;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  transition: $transition-2;
+  transition-delay: 300ms;
+  &.loadend {
+    transform: translateY(100%);
+    & > * {
+      opacity: 0;
+      transition: $transition-1;
+    }
+  }
+}
+
+.circle {
+  width: 112px;
+  aspect-ratio: 1/1;
+  border-radius: $radius-circle;
+  border: 3px solid $white;
+  border-left-color: $black;
+  margin-bottom: 45px;
+  animation: {
+    name: circleRotate;
+    duration: 1s;
+    iteration-count: infinite;
+    timing-function: linear;
+  }
+}
+
+.preload .text {
+  font: {
+    size: calc(2rem + 3vw);
+    weight: $weight-bold;
+  }
+  letter-spacing: 16px;
+  text-transform: uppercase;
+  line-height: 1em;
+  color: transparent;
+  background: {
+    size: 400%;
+    image: $loading-text-gradient;
+    clip: text;
+  }
+  animation: {
+    name: textAnimation;
+    duration: 2s;
+    iteration-count: infinite;
+    timing-function: linear;
+  }
+  -webkit-text-stroke: 0.4px $black;
+  padding-left: 16px;
+}
+
+@keyframes circleRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes textAnimation {
+  from {
+    background-position: 100%;
+  }
+  to {
+    background-position: 1%;
+  }
+}

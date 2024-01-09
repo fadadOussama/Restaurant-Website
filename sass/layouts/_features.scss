@@ -1,0 +1,61 @@
+@use "../utils/colors" as *;
+@use "../base/typography" as *;
+@use "../utils/variables" as *;
+
+.features {
+  .section-title {
+    margin-block-end: 40px;
+  }
+}
+
+.feature {
+  &-card {
+    padding: 30px 20px 40px;
+    .card-icon {
+      max-width: max-content;
+      margin-inline: auto;
+      transition: $transition-2;
+    }
+    &:is(:hover, :focus-visible) .card-icon {
+      transform: rotate(0.5turn) scale(-1);
+    }
+    .card-title {
+      margin-block: 20px;
+    }
+    .card-text {
+      color: $quick-silver;
+      line-height: $lineHeight-6;
+    }
+  }
+  &-item:nth-child(odd) {
+    background-color: $eerie-black-3;
+  }
+  &-item:nth-child(even) {
+    background-color: $smoky-black-3;
+  }
+}
+
+// Super large
+@media (min-width: 1200px) {
+  .features .grid-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+// Desktop
+@media (min-width: 1400px) {
+  .features {
+    overflow: visible;
+    .shape {
+      display: block;
+    }
+    .shape-1 {
+      top: -89px;
+      right: 0;
+    }
+    .shape-2 {
+      bottom: 80px;
+      left: 0;
+    }
+  }
+}

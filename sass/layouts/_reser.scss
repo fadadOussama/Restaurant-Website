@@ -1,0 +1,125 @@
+@use "../utils/colors" as *;
+@use "../base/typography" as *;
+@use "../utils/variables" as *;
+
+.input-field {
+  background-color: $eerie-black-2;
+  color: $white;
+  height: 56px;
+  padding: 10px 20px;
+  border: 1px solid $white-alpha-10;
+  margin-block-end: 20px;
+  transition: $transition-2;
+  &::placeholder {
+    color: inherit;
+  }
+  &:focus {
+    border-color: $gold-crayola;
+  }
+}
+
+.icon-wrapper {
+  position: relative;
+  margin-block-end: 20px;
+  .input-field {
+    margin-block-end: 0;
+    padding-inline-start: 40px;
+    cursor: pointer;
+    appearance: none;
+  }
+  ion-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.4rem;
+    --ionicon-stroke-width: 50px;
+    pointer-events: none;
+  }
+  ion-icon:first-child {
+    left: 15px;
+  }
+  ion-icon:last-child {
+    right: 15px;
+  }
+}
+
+.reservation-form {
+  margin-block-start: -270px;
+}
+
+.form-text {
+  margin-block-end: 40px;
+  .link {
+    display: inline-block;
+    color: $gold-crayola;
+  }
+}
+
+.form-right {
+  .headline-1 {
+    margin-block-end: 40px;
+  }
+  .contact-label {
+    margin-block-end: 5px;
+  }
+  .separator {
+    margin: 20px auto;
+  }
+  .body-4 {
+    color: $quick-silver;
+    line-height: $lineHeight-3;
+  }
+  .body-4:not(:last-child) {
+    margin-block-end: 25px;
+  }
+}
+
+.form-left,
+.form-right {
+  padding: 40px 20px 30px;
+}
+
+.input-field[type="date"] {
+  text-transform: uppercase;
+  padding-inline-end: 10px;
+  &::-webkit-calendar-picker-indicator {
+    opacity: 0;
+  }
+}
+
+textarea.input-field {
+  height: 140px;
+  resize: none;
+  padding: 20px;
+  line-height: $lineHeight-1;
+}
+
+.form-left button {
+  max-width: 100%;
+  width: 100%;
+}
+
+.form-right {
+  background-repeat: repeat;
+  background-position: top left;
+}
+
+// Medium
+@media (min-width: 768px) {
+  .reservation .input-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+    &:nth-child(4) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+// Large
+@media (min-width: 992px) {
+  .reservation-form {
+    display: grid;
+    grid-template-columns: 1fr 0.5fr;
+  }
+}

@@ -1,0 +1,59 @@
+@use "../utils/colors" as *;
+@use "../base/typography" as *;
+@use "../utils/variables" as *;
+
+.event {
+  .section-title {
+    margin-block-end: 40px;
+  }
+  .btn {
+    margin-inline: auto;
+    margin-block-start: 40px;
+  }
+  &-card {
+    position: relative;
+    overflow: hidden;
+    .card-content {
+      background-image: $gradient-1;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      padding: 35px 35px 25px;
+    }
+    .publish-date {
+      position: absolute;
+      top: 30px;
+      left: 25px;
+      padding: 5px 10px;
+      color: $gold-crayola;
+      background-color: $black;
+      font-weight: $weight-bold;
+      letter-spacing: $letterSpacing-1;
+      line-height: 14px;
+    }
+    .card-subtitle {
+      color: $gold-crayola;
+      margin-block-end: 5px;
+      font-weight: $weight-bold;
+      letter-spacing: $letterSpacing-2;
+      text-transform: uppercase;
+    }
+    .card-banner {
+      .img-cover {
+        transition: $transition-2;
+      }
+    }
+    &:is(:hover, :focus-visible) .card-banner .img-cover {
+      transform: scale(1.05);
+    }
+  }
+}
+
+// Media Queries
+
+@media (min-width: 575px) {
+  .event .container {
+    max-width: 420px;
+    margin-inline: auto;
+  }
+}

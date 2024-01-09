@@ -1,0 +1,64 @@
+@use "../utils/colors" as *;
+@use "../base/typography" as *;
+@use "../utils/variables" as *;
+
+.has-bg-image {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.testi {
+  padding-block-end: 340px;
+  position: static;
+  .quote {
+    font-size: 7rem;
+    font-family: $fontFamily-forum;
+    line-height: 0.7em;
+  }
+  .wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-block: 40px 50px;
+  }
+  .separator {
+    animation: rotate360 15s linear infinite;
+  }
+  .img {
+    margin-block-end: 15px;
+    margin-inline: auto;
+    border-radius: $radius-circle;
+  }
+  .profile-name {
+    color: $gold-crayola;
+    letter-spacing: $letterSpacing-3;
+    text-transform: uppercase;
+    font-weight: $weight-bold;
+  }
+}
+
+@keyframes rotate360 {
+  from {
+    transform: rotate(0turn);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+// Large
+@media (min-width: 992px) {
+  .testi-text {
+    max-width: 910px;
+    margin-inline: auto;
+  }
+}
+
+// Super large
+@media (min-width: 1200px) {
+  .form-left,
+  .form-right {
+    padding: 75px 60px !important;
+  }
+}
